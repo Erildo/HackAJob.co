@@ -5,16 +5,14 @@ import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Scanner;
-
-public class future {
-
-		public static void run (String date_of_birth) {
-			
-			String myArray[] = date_of_birth.split("-");
+public class Solution {
+	
+	public static String run(String birthday_date) {
+	String myArray[] = birthday_date.split("-");
 			String newString = myArray[1]  +"-"+ myArray[0];
-
-			int year = Calendar.getInstance().get(Calendar.YEAR);
-			for(int i=year;i<2051;i++) {
+			String future_dates="";
+			int year = 2016;
+			for(int i=year;i<2066;i++) {
 				String strI = Integer.toString(i);
                 String data=strI+"-"+newString;
               
@@ -24,15 +22,12 @@ public class future {
 			int y =date.getYear();
 			String output = dow.getDisplayName(TextStyle.SHORT, Locale.US);
 			if(dow ==dow.SUNDAY || dow ==dow.SATURDAY || dow== dow.FRIDAY ) {
-			System.out.println(output+"-"+y);
+			future_dates =future_dates+" "+ output+"-"+y;
+
 			}
 			}
-		}
-		public static void main(String[] args) {
-			System.out.println("Vendosni ditelindjen:(format 06-01)");
-			 Scanner sc=  new Scanner(System.in);
-			 String s=sc.nextLine();
-		run(s);
-		}
+			return future_dates;
+
+}
 	
 }
